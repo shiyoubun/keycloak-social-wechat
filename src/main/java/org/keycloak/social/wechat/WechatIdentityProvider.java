@@ -52,29 +52,42 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
+ * <a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419316505&token=2639bbef696c2f1540dec98ed4d45bcca460dd86&lang=zh_CN">参考文档</a>
+ *
  * @author jacky.yong
  */
 public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth2IdentityProviderConfig>
         implements SocialIdentityProvider<OAuth2IdentityProviderConfig> {
 
+    //第一步: 请求CODE
     public static final String AUTH_URL = "https://open.weixin.qq.com/connect/qrconnect";
+
+    //第二步: 通过code获取access_token
     public static final String TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
+
+    // 应用授权作用域，拥有多个作用域用逗号（,）分隔，网页应用目前仅填写snsapi_login即可
     public static final String DEFAULT_SCOPE = "snsapi_login";
 
     public static final String WECHAT_AUTH_URL = "https://open.weixin.qq.com/connect/oauth2/authorize";
+
     public static final String WECHAT_TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
+
     public static final String WECHAT_DEFAULT_SCOPE = "snsapi_userinfo";
 
+    //第三步: 通过access_token调用 获取用户个人信息
     public static final String PROFILE_URL = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 
     public static final String OAUTH2_PARAMETER_CLIENT_ID = "appid";
+
     public static final String OAUTH2_PARAMETER_CLIENT_SECRET = "secret";
 
     public static final String WECHAT_APPID_KEY = "clientId2";
-    public static final String WECHATAPPIDKEY = "clientSecret2";
+
+    public static final String WECHAT_APPID_SECRET = "clientSecret2";
 
     public static final String OPENID = "openid";
-    public static final String WECHATFLAG = "micromessenger";
+
+    public static final String WECHAT_USER_AGENT_FLAG = "micromessenger";
 
     public WechatIdentityProvider(KeycloakSession session, OAuth2IdentityProviderConfig config) {
         super(session, config);
@@ -92,11 +105,11 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
         return true;
     }
 
-
     protected BrokeredIdentityContext extractIdentityFromProfile(EventBuilder event, JsonNode profile) {
-        String uuionid = getJsonProperty(profile, "unionid");
+        String unionid = getJsonProperty(profile, "unionid");
+
         BrokeredIdentityContext user = new BrokeredIdentityContext(
-                (uuionid != null && uuionid.length() > 0 ? uuionid : getJsonProperty(profile, "openid")));
+                (unionid != null && unionid.length() > 0 ? unionid : getJsonProperty(profile, "openid")));
 
         user.setUsername(getJsonProperty(profile, "openid"));
         user.setBrokerUserId(getJsonProperty(profile, "openid"));
@@ -113,12 +126,14 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
         if (accessToken == null) {
             throw new IdentityBrokerException("No access token available in OAuth server response: " + response);
         }
+
         BrokeredIdentityContext context = null;
         try {
             JsonNode profile = null;
             if (wechat) {
                 String openid = extractTokenFromResponse(response, "openid");
                 String url = PROFILE_URL.replace("ACCESS_TOKEN", accessToken).replace("OPENID", openid);
+
                 profile = SimpleHttp.doGet(url, session).asJson();
             } else {
                 profile = new ObjectMapper().readTree(response);
@@ -128,7 +143,9 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
         } catch (IOException e) {
             logger.error(e);
         }
+
         context.getContextData().put(FEDERATED_ACCESS_TOKEN, accessToken);
+
         return context;
     }
 
@@ -159,9 +176,10 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
      */
     private boolean isWechatBrowser(String ua) {
         String wechatAppId = getConfig().getConfig().get(WECHAT_APPID_KEY);
-        String wechantSecret = getConfig().getConfig().get(WECHATAPPIDKEY);
-        if (ua.indexOf(WECHATFLAG) > 0 && wechatAppId != null && wechantSecret != null
-                && wechatAppId.length() > 0 && wechantSecret.length() > 0) {
+        String wechatSecret = getConfig().getConfig().get(WECHAT_APPID_SECRET);
+
+        if (ua.indexOf(WECHAT_USER_AGENT_FLAG) > 0 && wechatAppId != null && wechatSecret != null
+                && wechatAppId.length() > 0 && wechatSecret.length() > 0) {
             return true;
         }
         return false;
@@ -172,7 +190,8 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
 
         final UriBuilder uriBuilder;
         String ua = request.getHttpRequest().getHttpHeaders().getHeaderString("user-agent").toLowerCase();
-        if (isWechatBrowser(ua)) {// 是微信浏览器
+        if (isWechatBrowser(ua)) {
+            // 是微信浏览器
             logger.info("----------wechat");
             uriBuilder = UriBuilder.fromUri(WECHAT_AUTH_URL);
             uriBuilder.queryParam(OAUTH2_PARAMETER_SCOPE, WECHAT_DEFAULT_SCOPE)
@@ -302,7 +321,7 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
                 return SimpleHttp.doPost(WECHAT_TOKEN_URL, session)
                         .param(OAUTH2_PARAMETER_CODE, authorizationCode)
                         .param(OAUTH2_PARAMETER_CLIENT_ID, getConfig().getConfig().get(WECHAT_APPID_KEY))
-                        .param(OAUTH2_PARAMETER_CLIENT_SECRET, getConfig().getConfig().get(WECHATAPPIDKEY))
+                        .param(OAUTH2_PARAMETER_CLIENT_SECRET, getConfig().getConfig().get(WECHAT_APPID_SECRET))
                         .param(OAUTH2_PARAMETER_REDIRECT_URI, uriInfo.getAbsolutePath().toString())
                         .param(OAUTH2_PARAMETER_GRANT_TYPE, OAUTH2_GRANT_TYPE_AUTHORIZATION_CODE);
             }
