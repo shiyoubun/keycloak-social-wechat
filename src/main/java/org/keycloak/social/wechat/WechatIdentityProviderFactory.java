@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.keycloak.social.weixin;
+package org.keycloak.social.wechat;
 
 import org.keycloak.broker.oidc.OAuth2IdentityProviderConfig;
 import org.keycloak.broker.provider.AbstractIdentityProviderFactory;
@@ -23,24 +23,21 @@ import org.keycloak.broker.social.SocialIdentityProviderFactory;
 import org.keycloak.models.KeycloakSession;
 
 /**
- * @author yong.jiang
+ * @author jacky.yong
  */
-public class WeiXinIdentityProviderFactory extends AbstractIdentityProviderFactory<WeiXinIdentityProvider>
-        implements SocialIdentityProviderFactory<WeiXinIdentityProvider> {
+public class WechatIdentityProviderFactory extends AbstractIdentityProviderFactory<WechatIdentityProvider>
+        implements SocialIdentityProviderFactory<WechatIdentityProvider> {
 
-    public static final String PROVIDER_ID = "weixin";
+    public static final String PROVIDER_ID = "Wechat";
 
-    @Override
     public String getName() {
-        return "WeiXin";
+        return "Wechat";
     }
 
-    @Override
-    public WeiXinIdentityProvider create(KeycloakSession session, IdentityProviderModel model) {
-        return new WeiXinIdentityProvider(session, new OAuth2IdentityProviderConfig(model));
+    public WechatIdentityProvider create(KeycloakSession session, IdentityProviderModel model) {
+        return new WechatIdentityProvider(session, new OAuth2IdentityProviderConfig(model));
     }
 
-    @Override
     public String getId() {
         return PROVIDER_ID;
     }

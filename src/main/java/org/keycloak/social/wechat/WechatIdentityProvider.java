@@ -14,7 +14,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package org.keycloak.social.weixin;
+package org.keycloak.social.wechat;
 
 import java.io.IOException;
 import java.net.URI;
@@ -52,9 +52,9 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
- * @author yong.jiang
+ * @author jacky.yong
  */
-public class WeiXinIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth2IdentityProviderConfig>
+public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth2IdentityProviderConfig>
         implements SocialIdentityProvider<OAuth2IdentityProviderConfig> {
 
     public static final String AUTH_URL = "https://open.weixin.qq.com/connect/qrconnect";
@@ -76,7 +76,7 @@ public class WeiXinIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
     public static final String OPENID = "openid";
     public static final String WECHATFLAG = "micromessenger";
 
-    public WeiXinIdentityProvider(KeycloakSession session, OAuth2IdentityProviderConfig config) {
+    public WechatIdentityProvider(KeycloakSession session, OAuth2IdentityProviderConfig config) {
         super(session, config);
         config.setAuthorizationUrl(AUTH_URL);
         config.setTokenUrl(TOKEN_URL);
@@ -273,7 +273,7 @@ public class WeiXinIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
                     }
 
                     federatedIdentity.setIdpConfig(getConfig());
-                    federatedIdentity.setIdp(WeiXinIdentityProvider.this);
+                    federatedIdentity.setIdp(WechatIdentityProvider.this);
                     federatedIdentity.setCode(state);
 
                     return callback.authenticated(federatedIdentity);
