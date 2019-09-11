@@ -28,7 +28,7 @@ import org.keycloak.models.KeycloakSession;
 public class WechatIdentityProviderFactory extends AbstractIdentityProviderFactory<WechatIdentityProvider>
         implements SocialIdentityProviderFactory<WechatIdentityProvider> {
 
-    public static final String PROVIDER_ID = "Wechat";
+    public static final String PROVIDER_ID = "wechat";
 
     public String getName() {
         return "Wechat";
