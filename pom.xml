@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>ai.dbpay.keycloak</groupId>
     <artifactId>keycloak-social-wechat</artifactId>
-    <version>7.0.0</version>
+    <version>v7.0.0</version>
     <name>Keycloak Social Wechat</name>
     <description/>
     <properties>
