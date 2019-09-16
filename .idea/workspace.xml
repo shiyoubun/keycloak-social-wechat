@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c07f30a4-430c-421c-a414-4703a18873fe" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProviderFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProviderFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/classes/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -17,12 +16,12 @@
     <option name="isMigrated" value="true" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+    <leaf>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="118">
-              <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+            <state relative-caret-position="74">
+              <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -30,13 +29,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProviderFactory.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="285">
+              <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -87,42 +84,25 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="1440" />
     <option name="y" value="23" />
-    <option name="width" value="1440" />
-    <option name="height" value="809" />
+    <option name="width" value="1920" />
+    <option name="height" value="1057" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
               <item name="keycloak-social-wechat" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="keycloak-social-wechat" type="462c0819:PsiDirectoryNode" />
-              <item name="releases" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="keycloak-social-wechat" type="462c0819:PsiDirectoryNode" />
-              <item name="releases" type="462c0819:PsiDirectoryNode" />
-              <item name="7.0.0" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="keycloak-social-wechat" type="462c0819:PsiDirectoryNode" />
-              <item name="releases" type="462c0819:PsiDirectoryNode" />
-              <item name="7.0.0" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
@@ -160,107 +140,15 @@
             <path>
               <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
               <item name="keycloak-social-wechat" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
+              <item name="keycloak-social-wechat" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-server-spi-private:7.0.0" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-server-spi-private:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-server-spi-private-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-server-spi-private:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-server-spi-private-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-server-spi-private:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-server-spi-private-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-server-spi-private:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-server-spi-private-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-              <item name="provider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-server-spi-private:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-server-spi-private-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-              <item name="social" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-services:7.0.0" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-services:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-services-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-services:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-services-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-services:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-services-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-services:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-services-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="broker" type="462c0819:PsiDirectoryNode" />
-              <item name="oidc" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-services:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-services-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="social" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="keycloak-social-wechat" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Maven: org.keycloak:keycloak-services:7.0.0" type="70bed36:NamedLibraryElementNode" />
-              <item name="keycloak-services-7.0.0.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="keycloak" type="462c0819:PsiDirectoryNode" />
-              <item name="social" type="462c0819:PsiDirectoryNode" />
-              <item name="github" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -336,18 +224,18 @@
       <workItem from="1568020267717" duration="307000" />
       <workItem from="1568020793537" duration="91000" />
       <workItem from="1568022142579" duration="994000" />
-      <workItem from="1568172277825" duration="1651000" />
+      <workItem from="1568172277825" duration="1943000" />
+      <workItem from="1568192693770" duration="370000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7729000" />
+    <option name="totallyTimeSpent" value="8391000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="809" extended-state="0" />
-    <editor active="true" />
+    <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22103004" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16666667" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -363,7 +251,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32914925" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24455959" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Alibaba Cloud View" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -507,26 +395,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProviderFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="39" column="2" lean-forward="true" selection-start-line="39" selection-start-column="2" selection-end-line="39" selection-end-column="2" />
+        <state relative-caret-position="191">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProviderFactory.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
+        <state relative-caret-position="285">
+          <caret line="19" column="24" selection-start-line="19" selection-start-column="24" selection-end-line="19" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/ai/dbpay/keycloak/social/wechat/WechatIdentityProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
