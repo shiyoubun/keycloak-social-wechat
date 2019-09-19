@@ -1,6 +1,6 @@
 # keycloak-social-wechat
 
-安装步骤:
+* 安装步骤:
 * 添加jar包到Keycloak服务:
   * `$ cp release/${version}/keycloak-social-wechat-${version}.jar _KEYCLOAK_HOME_/providers/`
 
