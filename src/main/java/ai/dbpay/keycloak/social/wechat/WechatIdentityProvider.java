@@ -13,6 +13,9 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriBuilder;
 import javax.ws.rs.core.UriInfo;
 
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.keycloak.OAuth2Constants;
 import org.keycloak.broker.oidc.AbstractOAuth2IdentityProvider;
 import org.keycloak.broker.oidc.OAuth2IdentityProviderConfig;
@@ -32,21 +35,19 @@ import org.keycloak.protocol.oidc.OIDCLoginProtocol;
 import org.keycloak.services.ErrorPage;
 import org.keycloak.services.messages.Messages;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 /**
- * <a href="https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419316505&token=2639bbef696c2f1540dec98ed4d45bcca460dd86&lang=zh_CN">参考文档</a>
+ * <a href=
+ * "https://open.weixin.qq.com/cgi-bin/showdocument?action=dir_list&t=resource/res_list&verify=1&id=open1419316505&token=2639bbef696c2f1540dec98ed4d45bcca460dd86&lang=zh_CN">参考文档</a>
  *
  * @author jacky.yong
  */
 public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth2IdentityProviderConfig>
         implements SocialIdentityProvider<OAuth2IdentityProviderConfig> {
 
-    //第一步: 请求CODE
+    // 第一步: 请求CODE
     public static final String AUTH_URL = "https://open.weixin.qq.com/connect/qrconnect";
 
-    //第二步: 通过code获取access_token
+    // 第二步: 通过code获取access_token
     public static final String TOKEN_URL = "https://api.weixin.qq.com/sns/oauth2/access_token";
 
     // 应用授权作用域，拥有多个作用域用逗号（,）分隔，网页应用目前仅填写snsapi_login即可
@@ -58,7 +59,7 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
 
     public static final String WECHAT_DEFAULT_SCOPE = "snsapi_userinfo";
 
-    //第三步: 通过access_token调用 获取用户个人信息
+    // 第三步: 通过access_token调用 获取用户个人信息
     public static final String PROFILE_URL = "https://api.weixin.qq.com/sns/userinfo?access_token=ACCESS_TOKEN&openid=OPENID&lang=zh_CN";
 
     public static final String OAUTH2_PARAMETER_CLIENT_ID = "appid";
@@ -79,11 +80,9 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
         config.setTokenUrl(TOKEN_URL);
     }
 
-
     public Object callback(RealmModel realm, AuthenticationCallback callback, EventBuilder event) {
         return new Endpoint(callback, realm, event);
     }
-
 
     protected boolean supportsExternalExchange() {
         return true;
@@ -95,10 +94,11 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
         BrokeredIdentityContext user = new BrokeredIdentityContext(
                 (unionid != null && unionid.length() > 0 ? unionid : getJsonProperty(profile, "openid")));
 
-        user.setUsername(getJsonProperty(profile, "openid"));
+        // user.setUsername(getJsonProperty(profile, "openid"));
+        user.setUsername(unionid != null && unionid.length() > 0 ? unionid : "");
         user.setBrokerUserId(getJsonProperty(profile, "openid"));
-        user.setModelUsername(getJsonProperty(profile, "openid"));
-        user.setName(getJsonProperty(profile, "nickname"));
+        // user.setModelUsername(getJsonProperty(profile, "openid"));
+        user.setModelUsername("");
         user.setIdpConfig(getConfig());
         user.setIdp(this);
         AbstractJsonUserAttributeMapper.storeUserProfileForMapper(user, profile, getConfig().getAlias());
@@ -133,7 +133,6 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
         return context;
     }
 
-
     public Response performLogin(AuthenticationRequest request) {
         try {
             URI authorizationUrl = createAuthorizationUrl(request).build();
@@ -146,7 +145,6 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
             throw new IdentityBrokerException("Could not create authentication request.", e);
         }
     }
-
 
     protected String getDefaultScopes() {
         return DEFAULT_SCOPE;
@@ -168,7 +166,6 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
         }
         return false;
     }
-
 
     protected UriBuilder createAuthorizationUrl(AuthenticationRequest request) {
 
@@ -243,8 +240,8 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
 
         @GET
         public Response authResponse(@QueryParam(AbstractOAuth2IdentityProvider.OAUTH2_PARAMETER_STATE) String state,
-                                     @QueryParam(AbstractOAuth2IdentityProvider.OAUTH2_PARAMETER_CODE) String authorizationCode,
-                                     @QueryParam(OAuth2Constants.ERROR) String error) {
+                @QueryParam(AbstractOAuth2IdentityProvider.OAUTH2_PARAMETER_CODE) String authorizationCode,
+                @QueryParam(OAuth2Constants.ERROR) String error) {
             logger.info("OAUTH2_PARAMETER_CODE=" + authorizationCode);
             boolean wechatFlag = false;
             if (headers != null && isWechatBrowser(headers.getHeaderString("user-agent").toLowerCase())) {
@@ -302,8 +299,7 @@ public class WechatIdentityProvider extends AbstractOAuth2IdentityProvider<OAuth
 
         public SimpleHttp generateTokenRequest(String authorizationCode, boolean wechat) {
             if (wechat) {
-                return SimpleHttp.doPost(WECHAT_TOKEN_URL, session)
-                        .param(OAUTH2_PARAMETER_CODE, authorizationCode)
+                return SimpleHttp.doPost(WECHAT_TOKEN_URL, session).param(OAUTH2_PARAMETER_CODE, authorizationCode)
                         .param(OAUTH2_PARAMETER_CLIENT_ID, getConfig().getConfig().get(WECHAT_APPID_KEY))
                         .param(OAUTH2_PARAMETER_CLIENT_SECRET, getConfig().getConfig().get(WECHAT_APPID_SECRET))
                         .param(OAUTH2_PARAMETER_REDIRECT_URI, uriInfo.getAbsolutePath().toString())
